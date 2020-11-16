@@ -48,7 +48,9 @@
         </div>
         <!-- slider Area End-->
 
+        <form action="/filter_rooms" method="post">
         <!-- Booking Room Start-->
+        @csrf
         <div class="booking-area">
             <div class="container">
                <div class="row ">
@@ -56,6 +58,20 @@
                 <form action="">
                 <div class="booking-wrap d-flex justify-content-between align-items-center">
 
+                    <div class="single-select-box mb-30">
+                        <div class="boking-tittle">
+                            <span>City:</span>
+                        </div>
+                        <div class="select-this">
+                                <div class="select-itms" >
+                                    <select name="city" id="select1">
+                                        @foreach ($cities as $item)
+                                            <option value="{{$item}}">{{$item}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                        </div>
+                   </div>
                     <!-- select in date -->
                     <div class="single-select-box mb-30">
                         <!-- select out date -->
@@ -82,16 +98,14 @@
                             <span>Adults:</span>
                         </div>
                         <div class="select-this">
-                            <form action="#">
-                                <div class="select-itms">
-                                    <select name="select" id="select1">
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                        <option value="">4</option>
+                                <div class="select-itms" >
+                                    <select name="adults" id="select1">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
                                     </select>
                                 </div>
-                            </form>
                         </div>
                    </div>
                     <!-- Single Select Box -->
@@ -100,16 +114,14 @@
                             <span>Children:</span>
                         </div>
                         <div class="select-this">
-                            <form action="#">
                                 <div class="select-itms">
-                                    <select name="select" id="select2">
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                        <option value="">4</option>
+                                    <select name="children" id="select2">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
                                     </select>
                                 </div>
-                            </form>
                         </div>
                    </div>
                     <!-- Single Select Box -->
@@ -118,7 +130,6 @@
                             <span>Rooms:</span>
                         </div>
                         <div class="select-this">
-                            <form action="#">
                                 <div class="select-itms">
                                     <select name="select" id="select3">
                                         <option value="">1</option>
@@ -127,17 +138,14 @@
                                         <option value="">4</option>
                                     </select>
                                 </div>
-                            </form>
                         </div>
                    </div>
+                   <button type="submit" onclick >Book Now</button>
+                </form>
                     <!-- Single Select Box -->
-                    <div class="single-select-box pt-45 mb-30">
-                        <a href="#" class="btn select-btn">Book Now</a>
-                   </div>
 
 
                 </div>
-            </form>
                </div>
                </div>
             </div>

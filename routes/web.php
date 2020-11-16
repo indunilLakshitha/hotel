@@ -81,6 +81,7 @@ Route ::get('payment','HomeController@payment');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/filter_rooms', 'HomeController@filter_rooms');
 
 
 

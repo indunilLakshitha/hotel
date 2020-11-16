@@ -188,6 +188,8 @@
                     <tr>
                         <th class="table-image"></th>
                         <th>Product</th>
+                        <th>From</th>
+                        <th>To</th>
                         <th>Quantity</th>
                         <th>Price</th>
                         <th class="column-spacer"></th>
@@ -200,6 +202,8 @@
                     <tr>
                         <td class="table-image"><a href="{{ url('shop', [$item->id]) }}"><img  src="{{URL::to($item->room_room_main_imageimage)}}"height="70px;" width="80px;"></a></td>
                         <td><a href="{{ url('shop', [$item->id]) }}">{{ $item->room_type }}</a></td>
+                        <td><input id="datepicker1"  placeholder="12/12/2020" /></td>
+                        <td><input id="datepicker2"  placeholder="12/12/2020" /></td>
                         <td>
                             <select class="quantity" data-id="{{ $item->rowId }}">
                                 <option {{ $item->qty == 1 ? 'selected' : '' }}>1</option>
