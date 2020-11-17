@@ -67,11 +67,8 @@
                                             <li><a href="{{ url('/about') }}">About</a></li>
                                             <li><a href="services.html">Service</a></li>
 
-                                            <li><a href="#">Pages</a>
-                                                <ul class="submenu">
-                                                    <li><a href="rooms.html">Rooms</a>
-                                                    <li><a href="elements.html">Element</a></li>
-                                                </ul>
+                                            <li><a href="/cart" style="font-size:20px;">My Rooms</a>
+
                                             </li>
                                             <li><a href="{{ url('/contact') }}">Contact</a></li>
                                             @else

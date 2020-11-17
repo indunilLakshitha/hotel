@@ -261,6 +261,9 @@
                                             <div class="per-night">
                                                 <span><u>Rs</u>{{$ro->today_price}}<span>/ par night</span></span>
                                             </div>
+                                            <div class="per-night">
+                                                <span>{{$ro->available}}<br>Rooms Available</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
