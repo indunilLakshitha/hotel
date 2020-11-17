@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,19 +20,19 @@
 
 
 
-<!-- CSS here -->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-            <link rel="stylesheet" href="assets/css/gijgo.css">
-            <link rel="stylesheet" href="assets/css/slicknav.css">
-            <link rel="stylesheet" href="assets/css/animate.min.css">
-            <link rel="stylesheet" href="assets/css/magnific-popup.css">
-            <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-            <link rel="stylesheet" href="assets/css/themify-icons.css">
-            <link rel="stylesheet" href="assets/css/slick.css">
-            <link rel="stylesheet" href="assets/css/nice-select.css">
-            <link rel="stylesheet" href="assets/css/style.css">
-            <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/gijgo.css">
+    <link rel="stylesheet" href="assets/css/slicknav.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
 
 
@@ -39,27 +40,28 @@
 
 
 </head>
+
 <body>
     <div id="app">
 
-    <header>
-        <!-- Header Start -->
-       <div class="header-area header-sticky">
-            <div class="main-header ">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <!-- logo -->
-                        <div class="col-xl-2 col-lg-2">
-                            <div class="logo">
-                               <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+        <header>
+            <!-- Header Start -->
+            <div class="header-area header-sticky">
+                <div class="main-header ">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <!-- logo -->
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo">
+                                    <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                </div>
                             </div>
-                        </div>
-                    <div class="col-xl-8 col-lg-8">
-                            <!-- main-menu -->
-                            <div class="main-menu f-right d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation" >
-                                        @if (Route::has('login'))
+                            <div class="col-xl-8 col-lg-8">
+                                <!-- main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            @if (Route::has('login'))
                                             @auth
                                             <li> <a href="{{ url('/home') }}">Home</a></li>
                                             <li><a href="{{ url('/about') }}">About</a></li>
@@ -73,268 +75,212 @@
                                             </li>
                                             <li><a href="{{ url('/contact') }}">Contact</a></li>
                                             @else
-
-
-
-
-
-
                                             <li> <a href="{{ route('login') }}">Login</a></li>
 
-                                                @if (Route::has('register'))
-                                                <li><a href="{{ route('register') }}">Register</a></li>
-                                                @endif
+                                            @if (Route::has('register'))
+                                            <li><a href="{{ route('register') }}">Register</a></li>
+                                            @endif
                                             @endauth
-
-                                         @endif
-
-
-                                         @guest
+                                            @endif
+                                            @guest
                                             <!-- <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                             </li> -->
                                             @if (Route::has('register'))
-                                                <!-- <li class="nav-item">
+                                            <!-- <li class="nav-item">
                                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                                 </li> -->
                                             @endif
-                                        @else
+                                            @else
                                             <li class="nav-item dropdown">
-                                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
+                                                    role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false" v-pre>
                                                     {{ Auth::user()->name }}
                                                 </a>
-
-                                                <div class="dropdown-menu dropdown-menu-right " >
-                                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
+                                                <div class="dropdown-menu dropdown-menu-right ">
+                                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                                     document.getElementById('logout-form').submit();">
                                                         {{ __('Logout') }}
                                                     </a>
-
-
                                                     @if (auth()->check())
-                                                        @if (auth()->user()->isAdmin())
+                                                    @if (auth()->user()->isAdmin())
 
-                                                        <a class="dropdown-item" href="{{ route('admin.users.index') }}" >
-                                                            User Management
-                                                            </a>
-
-
-                                                            <a class="dropdown-item" href="{{route('hotel')}}">
-                                                            Hotel
-                                                            </a>
-
-
-                                                        @else
-
-                                                        @endif
+                                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">
+                                                        User Management
+                                                    </a>
+                                                    <a class="dropdown-item" href="{{route('hotel')}}">
+                                                        Hotel
+                                                    </a>
+                                                    @else
                                                     @endif
-
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @endif
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                        class="d-none">
                                                         @csrf
                                                     </form>
                                                 </div>
                                             </li>
+                                            <li><a href="{{ url('/wishlist') }}">Wishlist
+                                                    ({{ Cart::instance('wishlist')->count(false) }})</a></li>
+                                            <li><a href="{{ url('/cart') }}">Cart
+                                                    ({{ Cart::instance('default')->count(false) }})</a></li>
 
-                                            <li ><a href="{{ url('/wishlist') }}">Wishlist ({{ Cart::instance('wishlist')->count(false) }})</a></li>
-                                             <li><a href="{{ url('/cart') }}">Cart ({{ Cart::instance('default')->count(false) }})</a></li>
 
 
+                                            @endguest
 
-                                        @endguest
+                                        </ul>
 
-                                    </ul>
+                                    </nav>
+                                </div>
 
-                                </nav>
+
+                                <!-- Mobile Menu -->
+                                <div class="col-12">
+                                    <div class="mobile_menu d-block d-lg-none"></div>
+                                </div>
                             </div>
-
-
-                        <!-- Mobile Menu -->
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
                         </div>
                     </div>
                 </div>
-            </div>
-       </div>
-        <!-- Header End -->
-    </header>
+                <!-- Header End -->
+        </header>
 
 
         <main class="py-4">
 
-        <div class="container">
-        <p><a href="{{ url('shop') }}">Home</a> / Cart</p>
-        <h1>Your Cart</h1>
+            <div class="container">
+                <p><a href="{{ url('shop') }}">Home</a> / Cart</p>
+                <h1>Your Cart</h1>
 
-        <hr>
+                <hr>
 
-        @if (session()->has('success_message'))
-            <div class="alert alert-success">
-                {{ session()->get('success_message') }}
-            </div>
-        @endif
+                @if (session()->has('success_message'))
+                <div class="alert alert-success">
+                    {{ session()->get('success_message') }}
+                </div>
+                @endif
 
-        @if (session()->has('error_message'))
-            <div class="alert alert-danger">
-                {{ session()->get('error_message') }}
-            </div>
-        @endif
+                @if (session()->has('error_message'))
+                <div class="alert alert-danger">
+                    {{ session()->get('error_message') }}
+                </div>
+                @endif
 
-        @if (sizeof(Cart::content()) > 0)
+                {{-- @if (sizeof(Cart::content()) > 0) --}}
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th class="table-image"></th>
-                        <th>Product</th>
-                        <th>From</th>
-                        <th>To</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th class="column-spacer"></th>
-                        <th></th>
-                    </tr>
-                </thead>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    @foreach (Cart::content() as $item)
-                    <tr>
-                        <td class="table-image"><a href="{{ url('shop', [$item->id]) }}"><img  src="{{URL::to($item->room_room_main_imageimage)}}"height="70px;" width="80px;"></a></td>
-                        <td><a href="{{ url('shop', [$item->id]) }}">{{ $item->room_type }}</a></td>
-                        <td><input id="datepicker1"  placeholder="12/12/2020" /></td>
-                        <td><input id="datepicker2"  placeholder="12/12/2020" /></td>
-                        <td>
-                            <select class="quantity" data-id="{{ $item->rowId }}">
-                                <option {{ $item->qty == 1 ? 'selected' : '' }}>1</option>
-                                <option {{ $item->qty == 2 ? 'selected' : '' }}>2</option>
-                                <option {{ $item->qty == 3 ? 'selected' : '' }}>3</option>
-                                <option {{ $item->qty == 4 ? 'selected' : '' }}>4</option>
-                                <option {{ $item->qty == 5 ? 'selected' : '' }}>5</option>
-                            </select>
-                        </td>
-                        <td>${{ $item->subtotal }}</td>
-                        <td class=""></td>
-                        <td>
-                            <form action="{{ url('cart', [$item->rowId]) }}" method="POST" class="side-by-side">
-                                {!! csrf_field() !!}
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="submit" class="btn btn-danger btn-sm mt-2" value="Remove">
-                            </form>
+                    <tbody>
+                        <?php $total =0?>
+                        @isset($itemss)
 
-                            {{-- <form action="{{ url('switchToWishlist', [$item->rowId]) }}" method="POST" class="side-by-side">
-                                {!! csrf_field() !!}
-                                <input type="submit" class="btn btn-success btn-sm mt-2" value="To Wishlist">
-                            </form> --}}
-                        </td>
-                    </tr>
 
-                    @endforeach
-                    <tr>
-                        <td class="table-image"></td>
-                        <td></td>
-                        <td class="small-caps table-bg" style="text-align: right">Subtotal</td>
-                        <td>${{ Cart::instance('default')->subtotal() }}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="table-image"></td>
-                        <td></td>
-                        <td class="small-caps table-bg" style="text-align: right">Tax</td>
-                        <td>${{ Cart::instance('default')->tax() }}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                        @foreach ($itemss as $item)
+                        <tr>
+                            <td>{{$item->room_type}}</td>
+                            <td>{{$item->room_description1}}</td>
+                            <td>{{$item->qty}}</td>
+                            <td>{{$item->today_price}}</td>
+                            <?php $total +=$item->today_price?>
+                        </tr>
+                        @endforeach
+                        @endisset
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Total Amount</td>
+                            <td>{{$total}}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                    <tr class="border-bottom">
-                        <td class="table-image"></td>
-                        <td style="padding: 40px;"></td>
-                        <td class="small-caps table-bg" style="text-align: right">Your Total</td>
-                        <td class="table-bg">${{ Cart::total() }}</td>
-                        <td class="column-spacer"></td>
-                        <td></td>
-                    </tr>
+                {{-- <a href="{{ url('/shop') }}" class="btn btn-primary btn-lg">Continue Shopping</a> &nbsp; --}}
+                {{-- <a href="{{ url('/home') }}" class="btn btn-success btn-lg">Proceed to Checkout</a> --}}
+                <a href="{{ url('/payment') }}" class="btn btn-dark btn-lg">Pay</a>
 
-                </tbody>
-            </table>
-
-            {{-- <a href="{{ url('/shop') }}" class="btn btn-primary btn-lg">Continue Shopping</a> &nbsp; --}}
-            <a href="{{ url('/home') }}" class="btn btn-success btn-lg">Proceed to Checkout</a>
-            <a href="{{ url('/payment') }}" class="btn btn-dark btn-lg">Pay</a>
-
-            <div style="float:right">
-                <form action="{{ url('/emptyCart') }}" method="POST">
-                    {!! csrf_field() !!}
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="submit" class="btn btn-danger btn-lg" value="Empty Cart">
+                {{-- <div style="float:right">
+                    <form action="{{ url('/emptyCart') }}" method="POST">
+                {!! csrf_field() !!}
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" class="btn btn-danger btn-lg" value="Empty Cart">
                 </form>
-            </div>
+            </div> --}}
 
-        @else
+            {{-- @else --}}
 
-            <h3>You have no items in your shopping cart</h3>
-            <a href="{{ url('/shop') }}" class="btn btn-primary btn-lg">Continue Shopping</a>
+            {{-- <h3>You have no items in your shopping cart</h3> --}}
+            {{-- <a href="{{ url('/shop') }}" class="btn btn-primary btn-lg">Continue Shopping</a> --}}
 
-        @endif
+            {{-- @endif --}}
 
-        <div class="spacer"></div>
+            <div class="spacer"></div>
 
     </div> <!-- end container -->
 
-        </main>
+    </main>
     </div>
 
-   <!-- Scripts -->
+    <!-- Scripts -->
 
 
 
 
-        <!-- <script src="{{ asset('js/app.js') }}" ></script> -->
-        <!-- <script src="./asset/js/app.js" ></script> -->
+    <!-- <script src="{{ asset('js/app.js') }}" ></script> -->
+    <!-- <script src="./asset/js/app.js" ></script> -->
 
-           	<!-- JS here -->
+    <!-- JS here -->
 
-		<!-- All JS Custom Plugins Link Here here -->
-        <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
 
-		<!-- Jquery, Popper, Bootstrap -->
-		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="./assets/js/popper.min.js"></script>
-        <script src="./assets/js/bootstrap.min.js"></script>
-	    <!-- Jquery Mobile Menu -->
-        <script src="./assets/js/jquery.slicknav.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./assets/js/jquery.slicknav.min.js"></script>
 
-		<!-- Jquery Slick , Owl-Carousel Plugins -->
-        <script src="./assets/js/owl.carousel.min.js"></script>
-        <script src="./assets/js/slick.min.js"></script>
-        <!-- Date Picker -->
-        <script src="./assets/js/gijgo.min.js"></script>
-		<!-- One Page, Animated-HeadLin -->
-        <script src="./assets/js/wow.min.js"></script>
-		<script src="./assets/js/animated.headline.js"></script>
-        <script src="./assets/js/jquery.magnific-popup.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <script src="./assets/js/slick.min.js"></script>
+    <!-- Date Picker -->
+    <script src="./assets/js/gijgo.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="./assets/js/wow.min.js"></script>
+    <script src="./assets/js/animated.headline.js"></script>
+    <script src="./assets/js/jquery.magnific-popup.js"></script>
 
-		<!-- Scrollup, nice-select, sticky -->
-        <script src="./assets/js/jquery.scrollUp.min.js"></script>
-        <script src="./assets/js/jquery.nice-select.min.js"></script>
-		<script src="./assets/js/jquery.sticky.js"></script>
+    <!-- Scrollup, nice-select, sticky -->
+    <script src="./assets/js/jquery.scrollUp.min.js"></script>
+    <script src="./assets/js/jquery.nice-select.min.js"></script>
+    <script src="./assets/js/jquery.sticky.js"></script>
 
-        <!-- contact js -->
-        <script src="./assets/js/contact.js"></script>
-        <script src="./assets/js/jquery.form.js"></script>
-        <script src="./assets/js/jquery.validate.min.js"></script>
-        <script src="./assets/js/mail-script.js"></script>
-        <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+    <!-- contact js -->
+    <script src="./assets/js/contact.js"></script>
+    <script src="./assets/js/jquery.form.js"></script>
+    <script src="./assets/js/jquery.validate.min.js"></script>
+    <script src="./assets/js/mail-script.js"></script>
+    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
 
-		<!-- Jquery Plugins, main Jquery -->
-        <script src="./assets/js/plugins.js"></script>
-        <script src="./assets/js/main.js"></script>
-
-
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="./assets/js/plugins.js"></script>
+    <script src="./assets/js/main.js"></script>
 
 
-        <script>
+
+
+    <script>
         (function(){
 
             $.ajaxSetup({
@@ -360,8 +306,25 @@
 
         })();
 
+
+       function addToBokking(){
+
+        $.ajax({
+                type: 'POST',
+                url: '{{('/addtob')}}',
+                data: new FormData(form) ,
+                processData: false,
+                contentType: false,
+                success: function(data){
+                    console.log(data);
+                }
+            })
+
+        }
+
     </script>
 
 
 </body>
+
 </html>

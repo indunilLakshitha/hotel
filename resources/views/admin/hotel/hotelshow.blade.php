@@ -176,13 +176,13 @@
                 <div class="col-md-3">
 
                     <!-- Default form contact -->
-                    <form class="text-center border border-red green blue pink p-5" action="#!"
+                    <form class="text-center border border-red green blue pink p-5" action="/cart"
                         style="text-align:center;background-color: #2C995A;">
 
                         <p class="h4 mb-4">Search</p>
 
 
-                        <h5 style="text-align:left">Destination/property name:</h5>
+                        {{-- <h5 style="text-align:left">Destination/property name:</h5>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <input type="text" id="defaultContactFormName" class="form-control mb-4 "
@@ -221,10 +221,10 @@
 
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <!-- Send button -->
-                        <button class="btn btn-info btn-block" type="submit">Send</button>
+                        <button class="btn btn-info btn-block" type="submit">PAY</button>
 
                     </form>
                     <!-- Default form contact -->

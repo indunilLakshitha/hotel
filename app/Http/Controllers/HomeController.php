@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Bookings;
 use Illuminate\Http\Request;
 use DB;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB as FacadesDB;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class HomeController extends Controller
 {
@@ -57,13 +60,20 @@ class HomeController extends Controller
 
     public function payment()
     {
-        return Cart::content();
-        foreach(Cart::content() as $i){
-             return $r = FacadesDB::table('room_details')->where('hotel_id', $i->id)->where('room_type', $i->name)->first();
-            $r->booked = 1;
-            $r->save();
-        };
-        return view('cardpayment');
+         $rooms=Bookings::where('user_id',Auth::user()->id)->where('is_payed',0)->get();
+        $total=0;
+        foreach($rooms as $room){
+            $room->is_payed=1;
+             $room->save();
+              $price=DB::table('room_details')->where('id',$room->room_id)->get();
+             $total+=$price[0]->today_price;
+             $price[0]->available-=1;
+             $price[0]->booked+=1;
+             DB::table('room_details')->where('id',$room->room_id)->update(['available'=>$price[0]->available,'booked'=>$price[0]->booked]);
+
+        }
+
+        return view('cardpayment',compact('total'));
     }
 
 

@@ -149,71 +149,7 @@
 
     <main>
 
-
-        <div class="container">
-            <p><a href="{{ url('/shop') }}">Shop</a> / {{ $product->room_type }}</p>
-            <h1>{{ $product->room_type }}</h1>
-
-            <hr>
-
-            <div class="row">
-                <div class="col">
-                    <div class="col-md-4">
-                        <img src="{{URL::to($product->room_room_main_imageimage)}}" alt="product"
-                            class="img-responsive">
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="col-md-8">
-                        <h3>${{ $product->today_price }}</h3>
-                        <form action="{{ url('/addtocart') }}" method="POST" class="side-by-side">
-                            {!! csrf_field() !!}
-                            <input type="hidden" name="id" value="{{ $product->id }}">
-                            <input type="hidden" name="name" value="{{ $product->room_type}}">
-                            <input type="hidden" name="price" value="{{ $product->today_price}}">
-                            <input type="hidden" name="image" value="{{ $product->room_room_main_imageimage}}">
-                            <input type="submit" class="btn btn-success btn-lg" value="Add to Cart">
-                        </form>
-
-                        <form action="{{ url('/wishlist') }}" method="POST" class="side-by-side">
-                            {!! csrf_field() !!}
-                            <input type="hidden" name="id" value="{{ $product->id }}">
-                            <input type="hidden" name="name" value="{{ $product->room_type }}">
-                            <input type="hidden" name="price" value="{{ $product->today_price }}">
-                            {{-- <input type="submit" class="btn btn-primary btn-lg" value="Add to Wishlist"> --}}
-                        </form>
-
-
-                        <br><br>
-
-                        {{ $product->room_description1 }}
-                        <br><br>
-                        {{ $product->room_description2 }}
-                        <br><br>
-                        {{ $product->room_description3 }}
-
-                    </div> <!-- end col-md-8 -->
-
-                </div>
-
-
-
-            </div> <!-- end row -->
-
-            <div class="spacer"></div>
-
-            <div class="row">
-                <h3>You may also like...</h3>
-
-
-
-            </div> <!-- end row -->
-
-            <div class="spacer"></div>
-
-
-        </div> <!-- end container -->
-
+    
 
 
     </main>

@@ -36,7 +36,7 @@ class HotelController extends Controller
     public function HotelShow($id)
     {
         $hotel=DB::table('hotel_register')->where('id',$id)->first();
-        $rooms=DB::table('room_details')->where('hotel_id',$id)->get();
+        $rooms=DB::table('room_details')->where('hotel_id',$id)->where('available','>',0)->get();
 
 
         // $roomImage=DB::table('room_images')->get();
@@ -193,6 +193,8 @@ class HotelController extends Controller
         $data['room_description3']=$request->room_description3;
         $data['sleeps']=$request->sleeps;
         $data['today_price']=$request->today_price;
+        $data['room_qty']=$request->room_qty;
+        $data['available']=$request->room_qty;
 
 
         $image=$request->file('room_main_image');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bookings;
 use Illuminate\Http\Request;
 
 
@@ -9,6 +10,8 @@ use App\Http\Requests;
 
 // use Darryldecode\Cart\Facades\CartFacade as Cart;
 use \Cart as Cart;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Validator;
 
 
@@ -16,21 +19,27 @@ class CartController extends Controller
 {
     public function index()
     {
-        return view('cart');
+          $itemss=DB::table('bookings')
+        ->leftjoin('room_details','room_details.id','bookings.room_id')
+        ->select('bookings.*','room_details.*')
+        ->where('bookings.user_id',Auth::user()->id)
+        ->where('bookings.is_payed',0
+        )->get();
+        return view('cart',compact('itemss'));
     }
 
 
     public function store(Request $request)
     {
-        $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-            return $cartItem->id === $request->id;
-        });
+        // $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
+            // return $cartItem->id === $request->id;
+        // });
 
-        if (!$duplicates->isEmpty()) {
-            return redirect('cart')->withSuccessMessage('Item is already in your cart!');
-        }
+        // if (!$duplicates->isEmpty()) {
+            // return redirect('cart')->withSuccessMessage('Item is already in your cart!');
+        // }
         //dd(request()->all());
-       Cart::add($request->id, $request->name, 1, $request->price)->associate('App\Product');
+    //    Cart::add($request->id, $request->name, 1, $request->price)->associate('App\Product');
        return redirect('cart')->withSuccessMessage('Item was added to your cart!');
 
       // Cart::add('293ad', 'Product 1', 1, 9.99, 550, ['size' => 'large']);

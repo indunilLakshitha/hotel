@@ -83,7 +83,33 @@
 
                                     <button class='form-control btn btn-primary' type='submit'> Continue →</button>
 
-                        </form>
+
+                                 </form>
+
+                        <div>
+                            <form method="POST" action="https://sandbox.payhere.lk/pay/checkout" class="js-validate" novalidate="novalidate" id="order_form">
+                                <input type="hidden" name="merchant_id" value="121XXXX">    <!-- Replace your Merchant ID -->
+                                <input type="hidden" name="return_url" value="http://sample.com/return">
+                                <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
+                                <input type="hidden" name="notify_url" value="http://sample.com/notify">
+                                {{-- <br><br>Item Details<br> --}}
+                                <input type="hidden" name="order_id" value="ItemNo12345">
+                                <input type="hidden" name="items" value="Door bell wireless"><br>
+                                <input type="hidden" name="currency" value="LKR">
+                                <input type="hidden" name="amount" value="1000">
+                                {{-- <br><br>Customer Details<br> --}}
+                                <input type="hidden" name="first_name" value="Saman">
+                                <input type="hidden" name="last_name" value="Perera"><br>
+                                <input type="hidden" name="email" value="samanp@gmail.com">
+                                <input type="hidden" name="phone" value="0771234567"><br>
+                                <input type="hidden" name="address" value="No.1, Galle Road">
+                                <input type="hidden" name="city" value="Colombo">
+                                <input type="hidden" name="country" value="Sri Lanka"><br><br>
+                                {{-- <input type="submit" value="Buy Now"> --}}
+
+                                <button class='form-control btn btn-primary mt-1' href="payhere" > PayHere →</button>
+                            </form>
+                        </div>
 
                     </div>
                 </div>
@@ -102,7 +128,8 @@
                             src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png"
                             alt="paypal" width="100%"></a>
                     <br><br><br>
-                    <button class='form-control btn btn-primary submit-button' type='submit'> Continue →</button>
+                </form>
+                    <button class='form-control btn btn-primary submit-button'  type='submit'> Continue →</button>
             </div>
         </div>
 
@@ -121,34 +148,18 @@
         </div>
 
         <br><br><br>
-
         <div class="jumbotron jumbotron-flat">
             <div class="center">
                 <h2><i>BALANCE DUE:</i></h2>
             </div>
-            <div class="paymentAmt">$100</div>
-
-
-
+            <div class="paymentAmt">Rs.{{$total}}.00</div>
         </div>
-
-
-
         <br><br><br>
     </div>
-
-
-
-    </div>
-
-
-
     </div>
     </div>
-
-
+    </div>
     </form>
-
 </body>
 
 </html>

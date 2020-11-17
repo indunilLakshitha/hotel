@@ -94,3 +94,8 @@ Route::post('/filter_rooms', 'HomeController@filter_rooms');
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
     Route::resource('/users','UsersController',['except'=>['show','create','store']]);
 });
+Route::post('/addtob','BokkingsController@book');
+Route::post('/addtocart','BokkingsController@addtocart');
+Route::get('/payhere',function(){
+    return view('payhere');
+});

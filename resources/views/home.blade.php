@@ -57,7 +57,6 @@
                <div class="col-12">
                 <form action="">
                 <div class="booking-wrap d-flex justify-content-between align-items-center">
-
                     <div class="single-select-box mb-30">
                         <div class="boking-tittle">
                             <span>City:</span>
@@ -73,7 +72,7 @@
                         </div>
                    </div>
                     <!-- select in date -->
-                    <div class="single-select-box mb-30">
+                    {{-- <div class="single-select-box mb-30">
                         <!-- select out date -->
                         <div class="boking-tittle">
                             <span> Check In Date:</span>
@@ -81,9 +80,9 @@
                         <div class="boking-datepicker">
                             <input id="datepicker1"  placeholder="10/12/2020" />
                         </div>
-                   </div>
+                   </div> --}}
                     <!-- Single Select Box -->
-                    <div class="single-select-box mb-30">
+                    {{-- <div class="single-select-box mb-30">
                         <!-- select out date -->
                         <div class="boking-tittle">
                             <span>Check OutDate:</span>
@@ -91,9 +90,9 @@
                         <div class="boking-datepicker">
                             <input id="datepicker2"  placeholder="12/12/2020" />
                         </div>
-                   </div>
+                   </div> --}}
                     <!-- Single Select Box -->
-                    <div class="single-select-box mb-30">
+                    {{-- <div class="single-select-box mb-30">
                         <div class="boking-tittle">
                             <span>Adults:</span>
                         </div>
@@ -107,9 +106,9 @@
                                     </select>
                                 </div>
                         </div>
-                   </div>
+                   </div> --}}
                     <!-- Single Select Box -->
-                    <div class="single-select-box mb-30">
+                    {{-- <div class="single-select-box mb-30">
                         <div class="boking-tittle">
                             <span>Children:</span>
                         </div>
@@ -123,9 +122,9 @@
                                     </select>
                                 </div>
                         </div>
-                   </div>
+                   </div> --}}
                     <!-- Single Select Box -->
-                    <div class="single-select-box mb-30">
+                    {{-- <div class="single-select-box mb-30">
                         <div class="boking-tittle">
                             <span>Rooms:</span>
                         </div>
@@ -139,8 +138,8 @@
                                     </select>
                                 </div>
                         </div>
-                   </div>
-                   <button type="submit" onclick >Book Now</button>
+                   </div> --}}
+                   <button type="submit" class="btn btn-primary" onclick >Search Now</button>
                 </form>
                     <!-- Single Select Box -->
 

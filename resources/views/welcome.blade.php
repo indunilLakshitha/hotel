@@ -119,7 +119,7 @@
         </div>
         <!-- slider Area End-->
 
-        <!-- Booking Room Start-->
+        {{-- <!-- Booking Room Start-->
         <div class="booking-area">
             <div class="container">
                <div class="row ">
@@ -258,7 +258,7 @@
     </div>
 
 </section>
-<!-- Room End -->
+<!-- Room End --> --}}
 
 
         <!-- Dining Start -->
